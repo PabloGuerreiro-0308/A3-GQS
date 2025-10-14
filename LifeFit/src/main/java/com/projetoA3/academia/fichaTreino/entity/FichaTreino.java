@@ -1,4 +1,4 @@
-package fichaTreino.entity;
+package com.projetoA3.academia.fichaTreino.entity;
 
 
 import jakarta.persistence.*;
@@ -67,5 +67,5 @@ public class FichaTreino {
 
     @OneToMany(mappedBy = "fichaDeTreino", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<ItemTreino> itensTreino = new ArrayList<>();
-    
+
 }
