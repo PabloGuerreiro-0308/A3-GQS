@@ -1,6 +1,8 @@
 package com.projetoA3.academia.fichaTreino.entity;
 
 
+import com.projetoA3.academia.fichaTreino.status.StatusFicha;
+import com.projetoA3.academia.fichaTreino.tipoTreino.TipoTreino;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -65,7 +67,7 @@ public class FichaTreino {
     @Column(nullable = false)
     private TipoTreino proximoTreino;
 
-    @OneToMany(mappedBy = "fichaDeTreino", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "fichaTreino", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<ItemTreino> itensTreino = new ArrayList<>();
 
 }
