@@ -1,6 +1,8 @@
 package com.projetoA3.academia.fichaTreino.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.projetoA3.academia.fichaTreino.tipoTreino.TipoTreino;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,16 +19,17 @@ public class ItemTreino {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "ficha_treino_id",nullable = false)
+    @JoinColumn(name = "fichaTreino",nullable = false)
     private FichaTreino fichaTreino;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private TipoTreino TipoTreino;
+    private TipoTreino tipoTreino;
 
     @Column(nullable = false)
-    private int Ordem;
+    private int ordem;
 
     @Column
     private String series;
