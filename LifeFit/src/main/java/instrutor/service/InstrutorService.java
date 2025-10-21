@@ -1,8 +1,12 @@
-package instrutor.service;
+package com.lifefit.academia.service;
 
+import com.lifefit.academia.model.Instrutor;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
-public class InstrutorService {
+public interface InstrutorService {
+    Instrutor salvar(Instrutor instrutor);
+    List<Instrutor> listarTodos();
+    void remover(Long id);
+    Instrutor adicionarTurma(Long id, String turma);
 }
