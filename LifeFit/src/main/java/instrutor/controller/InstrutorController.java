@@ -1,7 +1,7 @@
-package com.lifefit.academia.controller;
+package instrutor.controller;
 
-import com.lifefit.academia.model.Instrutor;
-import com.lifefit.academia.service.InstrutorService;
+import instrutor.entity.*;
+import instrutor.service.InstrutorService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

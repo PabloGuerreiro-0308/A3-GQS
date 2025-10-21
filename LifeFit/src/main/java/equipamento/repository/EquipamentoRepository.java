@@ -1,7 +1,7 @@
-package com.lifefit.academia.repository;
+package equipamento.repository;
 
-import com.lifefit.academia.model.Equipamento;
-import com.lifefit.academia.model.GrupoMuscular;
+import equipamento.entity.Equipamento;
+import equipamento.GrupoMuscular;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

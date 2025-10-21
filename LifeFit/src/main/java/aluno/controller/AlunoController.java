@@ -1,8 +1,8 @@
-package com.lifefit.academia.controller;
+package aluno.controller;
 
-import com.lifefit.academia.model.Aluno;
-import com.lifefit.academia.model.enums.StatusAluno;
-import com.lifefit.academia.service.AlunoService;
+import aluno.entity.Aluno;
+import aluno.StatusAluno;
+import aluno.service.AlunoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

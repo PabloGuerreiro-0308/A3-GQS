@@ -1,6 +1,6 @@
-package com.lifefit.academia.repository;
+package instrutor.repository;
 
-import com.lifefit.academia.model.Instrutor;
+import instrutor.entity.Instrutor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface InstrutorRepository extends JpaRepository<Instrutor, Long> {

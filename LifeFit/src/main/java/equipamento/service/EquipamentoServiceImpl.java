@@ -1,8 +1,8 @@
-package com.lifefit.academia.service;
+package equipamento.service;
 
-import com.lifefit.academia.model.Equipamento;
-import com.lifefit.academia.model.GrupoMuscular;
-import com.lifefit.academia.repository.EquipamentoRepository;
+import equipamento.entity.Equipamento;
+import equipamento.GrupoMuscular;
+import equipamento.repository.EquipamentoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,4 +1,4 @@
-package com.lifefit.academia.model;
+package equipamento;
 
 public enum GrupoMuscular {
     SUPERIORES,

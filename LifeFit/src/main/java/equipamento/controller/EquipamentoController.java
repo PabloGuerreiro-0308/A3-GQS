@@ -1,8 +1,8 @@
-package com.lifefit.academia.controller;
+package equipamento.controller;
 
-import com.lifefit.academia.model.Equipamento;
-import com.lifefit.academia.model.GrupoMuscular;
-import com.lifefit.academia.service.EquipamentoService;
+import equipamento.entity.Equipamento;
+import equipamento.GrupoMuscular;
+import equipamento.service.EquipamentoService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

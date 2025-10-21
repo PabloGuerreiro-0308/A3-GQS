@@ -1,8 +1,7 @@
-package com.lifefit.academia.model;
+package equipamento.entity;
 
+import equipamento.GrupoMuscular;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity

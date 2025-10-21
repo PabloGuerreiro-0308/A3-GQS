@@ -1,7 +1,7 @@
-package com.lifefit.academia.repository;
+package aluno.repository;
 
-import com.lifefit.academia.model.Aluno;
-import com.lifefit.academia.model.enums.StatusAluno;
+import aluno.entity.Aluno;
+import aluno.StatusAluno;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,7 +1,7 @@
-package com.lifefit.academia.service;
+package equipamento.service;
 
-import com.lifefit.academia.model.Equipamento;
-import com.lifefit.academia.model.GrupoMuscular;
+import equipamento.entity.Equipamento;
+import equipamento.GrupoMuscular;
 
 import java.util.List;
 

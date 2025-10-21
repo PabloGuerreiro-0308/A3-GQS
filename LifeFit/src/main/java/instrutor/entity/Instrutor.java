@@ -1,4 +1,4 @@
-package com.lifefit.academia.model;
+package instrutor.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
