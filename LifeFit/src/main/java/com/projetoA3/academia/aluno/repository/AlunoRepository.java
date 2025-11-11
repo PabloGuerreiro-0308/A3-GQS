@@ -1,7 +1,7 @@
 package com.projetoA3.academia.aluno.repository;
 
 import com.projetoA3.academia.aluno.entity.Aluno;
-import com.lifefit.academia.model.enums.StatusAluno;
+import com.projetoA3.academia.aluno.enums.StatusAluno;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

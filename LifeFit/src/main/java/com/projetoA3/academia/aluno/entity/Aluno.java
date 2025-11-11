@@ -1,6 +1,6 @@
 package com.projetoA3.academia.aluno.entity;
 
-import com.lifefit.academia.model.enums.StatusAluno;
+import com.projetoA3.academia.aluno.enums.StatusAluno;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
