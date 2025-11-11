@@ -28,7 +28,7 @@ public class Equipamento {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "grupo_muscular")
-    private GrupoMuscular grupoMuscular;
+    private String grupoMuscular;
 
     @Min(0)
     @Column(nullable = false)
