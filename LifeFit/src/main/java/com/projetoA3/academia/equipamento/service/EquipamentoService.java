@@ -1,6 +1,6 @@
 package com.projetoA3.academia.equipamento.service;
 
-import com.projetoA3.academia.equipamento.entify.Equipamento;
+import com.projetoA3.academia.equipamento.entity.Equipamento;
 import com.projetoA3.academia.equipamento.GrupoMuscular;
 import com.projetoA3.academia.equipamento.repository.EquipamentoRepository;
 import org.springframework.stereotype.Service;

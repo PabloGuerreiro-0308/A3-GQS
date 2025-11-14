@@ -1,6 +1,7 @@
-package com.projetoA3.academia.equipamento.entify;
+package com.projetoA3.academia.equipamento.entity;
 
 import jakarta.persistence.*;
+import com.projetoA3.academia.equipamento.GrupoMuscular;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -28,7 +29,7 @@ public class Equipamento {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "grupo_muscular")
-    private String grupoMuscular;
+    private GrupoMuscular grupoMuscular;
 
     @Min(0)
     @Column(nullable = false)

@@ -1,6 +1,6 @@
 package com.projetoA3.academia.equipamento.controller;
 
-import com.projetoA3.academia.equipamento.entify.Equipamento;
+import com.projetoA3.academia.equipamento.entity.Equipamento;
 import com.projetoA3.academia.equipamento.GrupoMuscular;
 import com.projetoA3.academia.equipamento.service.EquipamentoService;
 import jakarta.validation.Valid;
