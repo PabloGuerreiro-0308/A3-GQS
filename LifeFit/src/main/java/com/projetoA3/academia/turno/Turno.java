@@ -1,4 +1,4 @@
-package turno;
+package com.projetoA3.academia.turno;
 
 public enum Turno {
         TURNO_MATUTINO,
