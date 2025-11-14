@@ -22,7 +22,8 @@ jobs:
 
       - name: Grant execute permission for mvnw
         run: chmod +x ./mvnw
-
+        working-directory: LifeFit
 
       - name: Build and test with Maven
         run: ./mvnw clean install
+        working-directory: LifeFit
