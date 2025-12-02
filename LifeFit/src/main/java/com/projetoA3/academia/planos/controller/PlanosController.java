@@ -1,14 +1,14 @@
-package planos.controller;
+package com.projetoA3.academia.planos.controller;
 
-import com.seuprojeto.academia.entity.Planos;
-import com.seuprojeto.academia.service.PlanosService;
+import com.projetoA3.academia.planos.entity.Planos;
+import com.projetoA3.academia.planos.service.PlanosService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/planos")
+@RequestMapping("/com/projetoA3/academia")
 public class PlanosController {
 
     private final PlanosService planosService;

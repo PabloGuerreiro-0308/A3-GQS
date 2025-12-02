@@ -1,6 +1,6 @@
-package planos.repository;
+package com.projetoA3.academia.planos.repository;
 
-import com.seuprojeto.academia.entity.Planos;
+import com.projetoA3.academia.planos.entity.Planos;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

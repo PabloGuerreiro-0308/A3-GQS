@@ -1,7 +1,7 @@
-package planos.service;
+package com.projetoA3.academia.planos.service;
 
-import com.seuprojeto.academia.entity.Planos;
-import com.seuprojeto.academia.repository.PlanosRepository;
+import com.projetoA3.academia.planos.entity.Planos;
+import com.projetoA3.academia.planos.repository.PlanosRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

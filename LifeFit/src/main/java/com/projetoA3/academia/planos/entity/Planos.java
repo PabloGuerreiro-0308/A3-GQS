@@ -1,4 +1,4 @@
-package planos.entity;
+package com.projetoA3.academia.planos.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
