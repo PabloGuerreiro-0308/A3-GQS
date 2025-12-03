@@ -1,14 +1,17 @@
 package com.projetoA3.academia.fichaTreino.service;
 
+import com.projetoA3.academia.equipamento.entity.Equipamento;
+import com.projetoA3.academia.equipamento.repository.EquipamentoRepository;
 import com.projetoA3.academia.fichaTreino.entity.FichaTreino;
 import com.projetoA3.academia.fichaTreino.entity.ItemTreino;
 import com.projetoA3.academia.fichaTreino.repository.FichaTreinoRepository;
 import com.projetoA3.academia.fichaTreino.repository.ItemTreinoRepository;
-import com.projetoA3.academia.fichaTreino.tipoTreino.TipoTreino;
 import com.projetoA3.academia.fichaTreino.status.StatusFicha;
+import com.projetoA3.academia.fichaTreino.tipoTreino.TipoTreino;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -18,17 +21,28 @@ public class FichaTreinoService {
 
     private final FichaTreinoRepository fichaTreinoRepository;
     private final ItemTreinoRepository itemTreinoRepository;
+    private final EquipamentoRepository equipamentoRepository;
 
-    public FichaTreinoService(FichaTreinoRepository fichaTreinoRepository, ItemTreinoRepository itemTreinoRepository) {
+    public FichaTreinoService(FichaTreinoRepository fichaTreinoRepository, ItemTreinoRepository itemTreinoRepository, EquipamentoRepository equipamentoRepository) {
         this.fichaTreinoRepository = fichaTreinoRepository;
         this.itemTreinoRepository = itemTreinoRepository;
+        this.equipamentoRepository = equipamentoRepository;
     }
 
     @Transactional
-    public FichaTreino criarFicha(FichaTreino fichaTreino){
-        if(fichaTreino.getItensTreino() != null){
-            for (ItemTreino itemTreino : fichaTreino.getItensTreino()) {
-                itemTreino.setFichaTreino(fichaTreino);
+    public FichaTreino criarFicha(FichaTreino fichaTreino) {
+        if (fichaTreino.getItensTreino() != null) {
+            for (ItemTreino item : fichaTreino.getItensTreino()) {
+                item.setFichaTreino(fichaTreino);
+
+                if (item.getEquipamento() != null && item.getEquipamento().getId() != null) {
+                    Equipamento equipamentoReal = equipamentoRepository.findById(item.getEquipamento().getId())
+                            .orElseThrow(() -> new EntityNotFoundException("Equipamento não encontrado com ID: " + item.getEquipamento().getId()));
+
+                    item.setEquipamento(equipamentoReal);
+                } else {
+                    item.setEquipamento(null);
+                }
             }
         }
         return fichaTreinoRepository.save(fichaTreino);
@@ -43,7 +57,6 @@ public class FichaTreinoService {
             List<ItemTreino> itensFiltrados = itemTreinoRepository.findByFichaTreino_IdAndTipoTreinoOrderByOrdemAsc(fichaId, tipo);
             ficha.setItensTreino(itensFiltrados);
         }
-
         return ficha;
     }
 
@@ -78,16 +91,9 @@ public class FichaTreinoService {
     }
 
     public List<ItemTreino> buscarProximoTreino(Long id) {
-
         FichaTreino ficha = fichaTreinoRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Ficha de treino não encontrada com o ID: " + id));
-
-
         TipoTreino treinoDoDia = ficha.getProximoTreino();
-
-
-        List<ItemTreino> itens = itemTreinoRepository.findByFichaTreino_IdAndTipoTreinoOrderByOrdemAsc(id, treinoDoDia);
-
-        return itens;
+        return itemTreinoRepository.findByFichaTreino_IdAndTipoTreinoOrderByOrdemAsc(id, treinoDoDia);
     }
 }

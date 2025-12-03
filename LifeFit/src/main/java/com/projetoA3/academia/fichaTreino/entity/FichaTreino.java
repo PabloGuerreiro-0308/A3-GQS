@@ -1,8 +1,10 @@
 package com.projetoA3.academia.fichaTreino.entity;
 
 
+import com.projetoA3.academia.aluno.entity.Aluno;
 import com.projetoA3.academia.fichaTreino.status.StatusFicha;
 import com.projetoA3.academia.fichaTreino.tipoTreino.TipoTreino;
+import com.projetoA3.academia.instrutor.entity.Instrutor;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,13 +31,13 @@ public class FichaTreino {
     @Column(nullable = false)
     private String nome;
 
-   // @ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "aluno_id", nullable = false)
-    private String aluno;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "aluno_id", nullable = false)
+    private Aluno aluno;
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "instrutor_id", nullable = false)
-    private String instrutorResponsavel;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "instrutor_id", nullable = false)
+    private Instrutor instrutorResponsavel;
 
     @Column
     private LocalDateTime dataUltimoTreino;
