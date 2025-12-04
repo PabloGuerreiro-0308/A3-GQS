@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/com/projetoA3/academia")
+@RequestMapping("/api/planos")
 public class PlanosController {
 
     private final PlanosService planosService;
@@ -30,8 +30,8 @@ public class PlanosController {
     }
 
     @PostMapping
-    public Planos createPlano(@RequestBody Planos plano) {
-        return planosService.save(plano);
+    public ResponseEntity<Planos> createPlano(@RequestBody Planos plano) {
+        return ResponseEntity.ok(planosService.save(plano));
     }
 
     @PutMapping("/{id}")
