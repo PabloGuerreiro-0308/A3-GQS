@@ -3,6 +3,7 @@ package com.projetoA3.academia.fichaTreino.controller;
 import com.projetoA3.academia.fichaTreino.entity.FichaTreino;
 import com.projetoA3.academia.fichaTreino.entity.ItemTreino;
 import com.projetoA3.academia.fichaTreino.service.FichaTreinoService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class FichaTreinoController {
     }
 
     @PostMapping
-    public ResponseEntity<FichaTreino> create(@RequestBody FichaTreino fichaTreino) {
+    public ResponseEntity<FichaTreino> create(@RequestBody @Valid FichaTreino fichaTreino) {
         FichaTreino novaFicha = fichaTreinoService.criarFicha(fichaTreino);
         return ResponseEntity.status(HttpStatus.CREATED).body(novaFicha);
     }
