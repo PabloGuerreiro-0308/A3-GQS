@@ -1,4 +1,4 @@
-package com.projetoA3.academia;
+package com.projetoA3.academia.planos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

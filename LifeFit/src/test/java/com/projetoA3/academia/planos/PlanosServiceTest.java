@@ -1,7 +1,8 @@
-package com.projetoA3.academia.planos.service;
+package com.projetoA3.academia.planos;
 
 import com.projetoA3.academia.planos.entity.Planos;
 import com.projetoA3.academia.planos.repository.PlanosRepository;
+import com.projetoA3.academia.planos.service.PlanosService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -37,37 +38,50 @@ class PlanosServiceTest {
     }
 
     @Test
-    void testFindAll() {
+    void deveRetornarTodosOsPlanos() {
         when(planosRepository.findAll()).thenReturn(Arrays.asList(plano));
 
         List<Planos> resultado = planosService.findAll();
 
         assertEquals(1, resultado.size());
         assertEquals("Plano Gold", resultado.get(0).getNome());
+        verify(planosRepository, times(1)).findAll();
     }
 
     @Test
-    void testFindById() {
+    void deveRetornarPlanoPorIdQuandoExistir() {
         when(planosRepository.findById(1L)).thenReturn(Optional.of(plano));
 
         Optional<Planos> resultado = planosService.findById(1L);
 
         assertTrue(resultado.isPresent());
         assertEquals("Plano Gold", resultado.get().getNome());
+        verify(planosRepository, times(1)).findById(1L);
     }
 
     @Test
-    void testSave() {
+    void deveRetornarOptionalVazioQuandoPlanoNaoExistir() {
+        when(planosRepository.findById(2L)).thenReturn(Optional.empty());
+
+        Optional<Planos> resultado = planosService.findById(2L);
+
+        assertFalse(resultado.isPresent());
+        verify(planosRepository, times(1)).findById(2L);
+    }
+
+    @Test
+    void deveSalvarPlanoComSucesso() {
         when(planosRepository.save(plano)).thenReturn(plano);
 
         Planos resultado = planosService.save(plano);
 
         assertNotNull(resultado);
         assertEquals(12, resultado.getDuracaoMeses());
+        verify(planosRepository, times(1)).save(plano);
     }
 
     @Test
-    void testDeleteById() {
+    void deveDeletarPlanoPorId() {
         doNothing().when(planosRepository).deleteById(1L);
 
         planosService.deleteById(1L);
@@ -75,3 +89,4 @@ class PlanosServiceTest {
         verify(planosRepository, times(1)).deleteById(1L);
     }
 }
+

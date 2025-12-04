@@ -12,20 +12,27 @@ public class Planos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     private String nome;
+
+
     private String descricao;
-    private double valor;
-    private int duracaoMeses;
+
+    private Double valor;
+
+
+    private Integer duracaoMeses;
 
     public Planos() {}
 
-    public Planos(String nome, String descricao, double valor, int duracaoMeses) {
+    public Planos(String nome, String descricao, Double valor, Integer duracaoMeses) {
         this.nome = nome;
         this.descricao = descricao;
         this.valor = valor;
         this.duracaoMeses = duracaoMeses;
     }
 
+    // getters e setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -35,9 +42,9 @@ public class Planos {
     public String getDescricao() { return descricao; }
     public void setDescricao(String descricao) { this.descricao = descricao; }
 
-    public double getValor() { return valor; }
-    public void setValor(double valor) { this.valor = valor; }
+    public Double getValor() { return valor; }
+    public void setValor(Double valor) { this.valor = valor; }
 
-    public int getDuracaoMeses() { return duracaoMeses; }
-    public void setDuracaoMeses(int duracaoMeses) { this.duracaoMeses = duracaoMeses; }
+    public Integer getDuracaoMeses() { return duracaoMeses; }
+    public void setDuracaoMeses(Integer duracaoMeses) { this.duracaoMeses = duracaoMeses; }
 }

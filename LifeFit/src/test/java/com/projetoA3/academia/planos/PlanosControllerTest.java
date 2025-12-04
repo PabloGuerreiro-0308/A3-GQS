@@ -1,35 +1,45 @@
-package com.projetoA3.academia.planos.controller;
+package com.projetoA3.academia.planos;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.projetoA3.academia.planos.controller.PlanosController;
 import com.projetoA3.academia.planos.entity.Planos;
 import com.projetoA3.academia.planos.service.PlanosService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.Arrays;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(PlanosController.class)
 class PlanosControllerTest {
 
-    @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
+    @Mock
     private PlanosService planosService;
 
-    @Autowired
+    @InjectMocks
+    private PlanosController planosController;
+
     private ObjectMapper objectMapper;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(planosController).build();
+        objectMapper = new ObjectMapper();
+    }
 
     private Planos criarPlano() {
         Planos plano = new Planos();
@@ -86,7 +96,7 @@ class PlanosControllerTest {
 
     @Test
     void testDeletePlano() throws Exception {
-        Mockito.doNothing().when(planosService).deleteById(1L);
+        doNothing().when(planosService).deleteById(1L);
 
         mockMvc.perform(delete("/api/planos/1"))
                 .andExpect(status().isNoContent());
