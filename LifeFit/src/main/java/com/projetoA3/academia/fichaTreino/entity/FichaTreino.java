@@ -6,6 +6,8 @@ import com.projetoA3.academia.fichaTreino.status.StatusFicha;
 import com.projetoA3.academia.fichaTreino.tipoTreino.TipoTreino;
 import com.projetoA3.academia.instrutor.entity.Instrutor;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,13 +31,16 @@ public class FichaTreino {
     private Long id;
 
     @Column(nullable = false)
+    @NotBlank(message = "O nome da ficha é obrigatório")
     private String nome;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @NotNull(message = "O nome do aluno é obrigatório")
     @JoinColumn(name = "aluno_id", nullable = false)
     private Aluno aluno;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @NotNull(message = "O nome do instrutor é obrigatório")
     @JoinColumn(name = "instrutor_id", nullable = false)
     private Instrutor instrutorResponsavel;
 

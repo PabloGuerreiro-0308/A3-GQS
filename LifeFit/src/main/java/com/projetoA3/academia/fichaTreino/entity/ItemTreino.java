@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projetoA3.academia.equipamento.entity.Equipamento;
 import com.projetoA3.academia.fichaTreino.tipoTreino.TipoTreino;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,7 @@ public class ItemTreino {
 
 
     @Column(nullable = false)
+    @NotBlank(message = "Exercício não pode estar vazio")
     private String exercicio;
 
 
