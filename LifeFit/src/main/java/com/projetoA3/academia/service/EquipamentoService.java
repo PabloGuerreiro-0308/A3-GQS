@@ -1,4 +1,4 @@
-package com.projetoA3.academia.equipamento.service;
+package com.projetoA3.academia.service;
 
 import com.projetoA3.academia.equipamento.entity.Equipamento;
 import com.projetoA3.academia.equipamento.GrupoMuscular;
